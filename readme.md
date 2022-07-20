@@ -15,7 +15,7 @@ jira is mounted up, otherwise it will not work.
 Function is working on cloud version of jira, in order to migrate to
 server version, head to jira docs.
 
-#### SETUP:
+### SETUP:
 
 In order to log time correctly, create .env file in top level directory,
 and provide fields listed under:
@@ -28,13 +28,13 @@ Fields in .env file
 
 #### JIRA\_DOMAIN\_NAME=companyname           
 
-#### Fields description: 
+### Fields description: 
 
-JIRA\_DOMAIN\_NAME is jira domain name -> all between https:// and .atlassian.net
+#### JIRA\_DOMAIN\_NAME is jira domain name -> all between https:// and .atlassian.net
 
-API\_TOKEN is API token generated on your account on atlassian site
+#### API\_TOKEN is API token generated on your account on atlassian site
 
-USER\_EMAIL is JIRA account e-mail
+#### USER\_EMAIL is JIRA account e-mail
 
 After that, you have to provide list of issues where you want to log your work
 time, in timeloglist.txt, in format listed below:
@@ -45,7 +45,7 @@ ticketName, startTimeOfWork - endTimeOfWork, dateOfWorkOnTask (DD-MM)
 
 ------------------------------------------------------------------------
 
-#### Note:
+### Note:
 
 ticketName will be changed to upperCase, so you don\'t have to provide
 it with capslock.
@@ -53,4 +53,4 @@ it with capslock.
 if you omit date, app will treat it as you were working today, and it
 will log time based on current day + month.
 
-#### If time will log correctly, info will be logged to the console: \"Request 201 Created\", otherwise properly error will be displayed.
+### If time will log correctly, info will be logged to the console: \"Request 201 Created\", otherwise properly error will be displayed.
