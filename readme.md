@@ -48,5 +48,12 @@ After that, you have to provide list of issues where you want to log your work t
 
 > If you omit date, app will treat it as you were working today, and it will log time based on current day + month.
 
-### If time will be logged correctly, info will be displayed in console: \"Request 201 Created\", 
-### otherwise properly error will be displayed.
+#### If time will be logged correctly then: 
+#### This will be displayed in console: 
+> \"Request 201 Created\", 
+#### otherwise properly error will be displayed.
+> & logged time will be saved in {currentYear}__{currentMonth}.txt file
+
+> e.g 2022__07.txt
+
+
