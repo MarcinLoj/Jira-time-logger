@@ -34,7 +34,7 @@ In order to log time correctly, create .env file in top level directory, and pro
 
 > USER\_EMAIL is JIRA account e-mail
 
-After that, you have to provide list of issues where you want to log your work time, in the timeloglist.txt file, in format listed below:
+After that, you have to provide list of issues where you want to log your work time, in the /worklogdoc/timeloglist.txt file, in format listed below:
 
 > ticketName, startTimeOfWork - endTimeOfWork, dateOfWorkOnTask (DD-MM)
 
@@ -52,7 +52,7 @@ After that, you have to provide list of issues where you want to log your work t
 #### 1. This will be displayed in console: 
 > Request 201 Created
 #### otherwise properly error will be displayed.
-#### 2. Logged time will be saved in {currentYear}__{currentMonth}.txt file
+#### 2. Logged time will be saved in {currentYear}__{currentMonth}.txt file in worklogdoc directory
 > e.g 2022__07.txt
 
 
