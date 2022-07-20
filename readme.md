@@ -12,8 +12,7 @@ Script helps in work time logging in jira cloud
 > CEST/CET based on system time, so you need to be in same timezone as
 > jira is mounted up, otherwise it will not work.
 
-Function is working on cloud version of jira, in order to migrate to
-server version, head to jira docs.
+> Function is working on cloud version of jira, in order to migrate to server version, head to jira docs.
 
 ## SETUP:
 
@@ -49,4 +48,5 @@ After that, you have to provide list of issues where you want to log your work t
 
 > If you omit date, app will treat it as you were working today, and it will log time based on current day + month.
 
-## If time will log correctly, info will be logged to the console: \"Request 201 Created\", otherwise properly error will be displayed.
+### If time will be logged correctly, info will be displayed in console: \"Request 201 Created\", 
+### otherwise properly error will be displayed.
