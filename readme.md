@@ -22,11 +22,19 @@ and provide fields listed under:
 
 Fields in .env file
 
-#### USER\_EMAIL=example\@mail.com            ----- E-mail of JIRA account
+#### USER\_EMAIL=example\@mail.com            
 
-#### API\_TOKEN=some\_random\_chars           ----- Api token generated on your account on atlassian site
+#### API\_TOKEN=some\_random\_chars           
 
-#### JIRA\_DOMAIN\_NAME=companyname           ----- Jira domain name, all between https:// and .atlassian.net
+#### JIRA\_DOMAIN\_NAME=companyname           
+
+#### Fields description: 
+
+JIRA\_DOMAIN\_NAME is jira domain name -> all between https:// and .atlassian.net
+
+API\_TOKEN is API token generated on your account on atlassian site
+
+USER\_EMAIL is JIRA account e-mail
 
 After that, you have to provide list of issues where you want to log your work
 time, in timeloglist.txt, in format listed below:
