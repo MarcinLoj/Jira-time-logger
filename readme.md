@@ -35,6 +35,7 @@ In order to log time correctly, create .env file in top level directory, and pro
 > USER\_EMAIL is JIRA account e-mail
 
 After that, you have to provide list of issues where you want to log your work time, in the /worklogdoc/timeloglist.txt file, in format listed below:
+`format must be the same as listed in example`
 
 > ticketName, startTimeOfWork - endTimeOfWork, dateOfWorkOnTask (DD-MM)
 
