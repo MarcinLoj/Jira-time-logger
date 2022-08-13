@@ -1,59 +1,56 @@
 Jira time logger script
 =======================
 
-Script helps in work time logging in jira cloud
------------------------------------------------
+**Script is used to log time spent on tasks *worklog***
+***
 
-------------------------------------------------------------------------
+* Currently timezone is mounted to ***Europe/Berlin*** and changes between ***CEST/CET based on system time***.
 
-## Note:
+* Function is working on ***jira cloud***, in order to migrate to server version, head to jira docs.
 
-> Currently timezone is mounted to Europe/Berlin and changing between 
-> CEST/CET based on system time, so you need to be in same timezone as
-> jira is mounted up, otherwise it will not work.
+## ***SETUP:***
 
-> Function is working on cloud version of jira, in order to migrate to server version, head to jira docs.
+* **In order to log time correctly, create .env file in top level directory, and provide fields listed under:**
 
-## SETUP:
+* **Fields in *.env* file**
 
-In order to log time correctly, create .env file in top level directory, and provide fields listed under:
+  * **USER\_EMAIL**=**example\@mail.com**
 
-### Fields in .env file
+  * **API\_TOKEN**=**some\_random\_chars**
 
-> USER\_EMAIL=example\@mail.com            
+  * **JIRA\_DOMAIN\_NAME**=**companyname**
 
-> API\_TOKEN=some\_random\_chars           
+* **Fields description:**
 
-> JIRA\_DOMAIN\_NAME=companyname           
+  * **JIRA\_DOMAIN\_NAME** is jira domain name -> all between https:// and .atlassian.net
 
-### Fields description: 
+  * **API\_TOKEN** is API token generated on your account on atlassian site
 
-> JIRA\_DOMAIN\_NAME is jira domain name -> all between https:// and .atlassian.net
+  * **USER\_EMAIL** is JIRA account e-mail
+      
+***
+### ***Next***, 
+* Provide list of issues, in the **/worklogdoc/timeloglist.txt** file, in format listed below:
+##
+**Format must be as listed below**
 
-> API\_TOKEN is API token generated on your account on atlassian site
+* ticketName, startTimeOfWork - endTimeOfWork, dateOfWorkOnTask (DD-MM)
 
-> USER\_EMAIL is JIRA account e-mail
+  * e.g **giua-1212, 08;20 - 08;35, 20.07**
 
-After that, you have to provide list of issues where you want to log your work time, in the /worklogdoc/timeloglist.txt file, in format listed below:
-`format must be the same as listed in example`
+***
+### ***Note***:
+* **ticketName** will be changed to upperCase, so you don\'t have to provide it with capslock.
 
-> ticketName, startTimeOfWork - endTimeOfWork, dateOfWorkOnTask (DD-MM)
+* If you **omit date**, app will treat it as you were working today, and it will log time based on current day + month.
+*** 
+* Correctly logged time, prints this:
 
-> e.g giua-1212, 08;20 - 08;35, 20.07
-
-------------------------------------------------------------------------
-
-### Note:
-
-> ticketName will be changed to upperCase, so you don\'t have to provide it with capslock.
-
-> If you omit date, app will treat it as you were working today, and it will log time based on current day + month.
-
-### If time will be logged correctly then: 
-#### 1. This will be displayed in console: 
-> Request 201 Created
-#### otherwise properly error will be displayed.
-#### 2. Logged time will be saved in {currentYear}__{currentMonth}.txt file in worklogdoc directory
-> e.g 2022__07.txt
+    * **Request 201 Created**
+***
+* Incorrectly logged time, **prints error**
+***
+* Logged time will be saved in ***{currentYear}__{currentMonth}.txt*** file in **worklogdoc directory**
+    * e.g **2022__07.txt**
 
 
