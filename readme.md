@@ -53,7 +53,7 @@ Jira time logger script
 * Logged time will be saved in ***{currentYear}__{currentMonth}.txt*** file in **worklogdoc directory**
     * e.g **2022__07.txt**
 
-### ***How to run a script?***
+## ***How to run a script?***
 
 * Make sure you are in the top directory, run `npm i` to install dependencies,
 * Then run `npm run timelog`
