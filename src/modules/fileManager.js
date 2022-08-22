@@ -17,20 +17,22 @@ const removeLinesInFile = (filePath) => {
   });
 };
 
-const createWorklogDocumentation = (task, timeSpent, date) => {
+const createWorklogDocumentation = (task, timeSpent, date, filePath) => {
   const currentDate = new Date();
 
   fs.appendFile(
-    `./worklogdoc/${currentDate.getFullYear()}__${date.split(".")[1]}.txt`,
+    `./src/worklogdoc/${currentDate.getFullYear()}__${date.split(".")[1]}.txt`,
     `${task}, ${timeSpent}, ${date}\n`,
     (err) => {
       if (err) {
-        console.log(`
-                    ${task}, ${timeSpent}, ${date} has not been saved to file\n
-                    `);
+        console.log(err)
+        console.log(`${task}, ${timeSpent}, ${date} has not been saved to file\n`);
+      }
+      else {
+        removeLinesInFile(filePath)
       }
     }
   );
 };
 
-module.exports = { removeLinesInFile, createWorklogDocumentation };
+module.exports = { createWorklogDocumentation };

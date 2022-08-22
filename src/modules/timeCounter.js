@@ -25,14 +25,18 @@ const getWorkTimeMinute = (time, timeSpent) => {
   if (time === "workStart") {
     return timeSpent.split("-")[0].split(";")[1].trim();
   }
-  return timeSpent.split("-")[1].split(";")[1].trim();
+  else {
+    return timeSpent.split("-")[1].split(";")[1].trim();
+  }
 };
 
 const getWorkTimeHour = (time, timeSpent) => {
   if (time === "workStart") {
     return timeSpent.split("-")[0].split(";")[0].trim();
   }
-  return timeSpent.split("-")[1].split(";")[0].trim();
+  else {
+    return timeSpent.split("-")[1].split(";")[0].trim();
+  }
 };
 
 module.exports = { counttimeSpentInSeconds };

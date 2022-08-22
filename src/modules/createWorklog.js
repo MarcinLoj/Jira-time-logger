@@ -1,12 +1,21 @@
 const fetch = require("node-fetch");
-const { counttimeSpentInSeconds } = require("../utils/timeCounter");
-async function postWorklog(task, timeSpent, date, options) {
+require("dotenv").config();
+const { counttimeSpentInSeconds } = require("./timeCounter");
+const {
+  createWorklogDocumentation,
+  removeLinesInFile,
+} = require("./fileManager");
+
+async function createWorklog(task, timeSpent, date, filePath) {
+  const USER_EMAIL = process.env.USER_EMAIL;
+  const API_TOKEN = process.env.API_TOKEN;
+  const JIRA_DOMAIN_NAME = process.env.JIRA_DOMAIN_NAME;
   const workDay = date.split(".")[0].trim();
   const workMonth = date.split(".")[1].trim();
   const timeStart = timeSpent.split("-")[0].split(";").join(":").trim();
   const currentDate = new Date();
   const yourTimeZone = `0${(currentDate.getTimezoneOffset() / 60) * -1}00Z`;
-  const { JIRA_DOMAIN_NAME, USER_EMAIL, API_TOKEN } = options;
+
   const bodyData = `{
                     "timeSpentSeconds": ${counttimeSpentInSeconds(timeSpent)},
                     "started": "${currentDate.getFullYear()}-${workMonth}-${workDay}T${timeStart}:00.000+${yourTimeZone}"
@@ -27,18 +36,19 @@ async function postWorklog(task, timeSpent, date, options) {
     }
   )
     .then((response) => {
-      console.log(
-        `Response status: ${response.status} ${response.statusText} `
-      );
+      if(response.status === 201) {
+        console.log(
+          `Response status: ${response.status} ${response.statusText}`
+        );
+        createWorklogDocumentation(task, timeSpent, date, filePath);
+      }
+      else {
+        console.error(`When logging time on ${task.toUpperCase()} at time ${timeSpent} at date ${date} request failed. Response status is ${response.status}`)
+      }
     })
     .catch((err) =>
-      console.error(`
-  
-                  When logging time on ${task.toUpperCase()} at time ${timeSpent} at date ${date} error occured:
-                  ${err}
-      
-      `)
+      console.error(`When logging time on ${task.toUpperCase()} at time ${timeSpent} at date ${date} network error occured: ${err}`)
     );
 }
 
-module.exports = { postWorklog };
+module.exports = { createWorklog };
